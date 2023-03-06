@@ -1,0 +1,49 @@
+#include <stdio.h>
+main()
+{
+    int i, n, temp, indexmin, j;
+    int data[10];
+    /* ---memasukan data --- */
+    printf("Selection sort ascending \n");
+    printf("Banyak data : ");
+    scanf("%d", &n);
+    for (i = 1; i <= n; i++)
+    {
+        printf("Data ke-%d : ", i);
+        scanf("%d", &data[i]);
+    }
+    /* --- proses pengulangan pembandingan data --- */
+    for (i = 1; i <= (n - 1); i++)
+    {
+        indexmin = i;
+        for (j = i + 1; j <= n; j++)
+        {
+            if (data[indexmin] > data[j])
+                indexmin = j;
+        }
+        /* --- proses tukar data (swap)--- */
+        if (data[i] != data[indexmin])
+        {
+            temp = data[i];
+            data[i] = data[indexmin];
+            data[indexmin] = temp;
+        }
+    }
+    /* --- proses tampil data setelah urut --- */
+    printf("Setelah pengurutan \n");
+    for (i = 1; i <= n; i++)
+        printf("%d ", data[i]);
+}
+
+
+/*
+Selection sort ascending 
+Banyak data : 5
+Data ke-1 : 3
+Data ke-2 : 4
+Data ke-3 : 6
+Data ke-4 : 2
+Data ke-5 : 5
+Setelah pengurutan
+2 3 4 5 6
+*/
